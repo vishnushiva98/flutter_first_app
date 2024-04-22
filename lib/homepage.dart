@@ -1,88 +1,110 @@
+// import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
+// class HomePage extends StatefulWidget {
+//   @override
+//   _HomePageState createState() => _HomePageState();
+// }
 
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> rows = [];
+// class _HomePageState extends State<HomePage> {
+//   List<Widget> cells = [];
+//   ScrollController _scrollController = ScrollController();
 
-    // Loop to generate each row
-    for (int row = 0; row < 6; row++) {
-      List<Widget> rowWidgets = [];
-
-      // Loop to generate widgets in each row
-      for (int col = 0; col < 3; col++) {
-        int index = row * 3 + col;
-        Color color = (index % 2 == 0) ? Colors.green : Colors.yellow;
-
-        rowWidgets.add(
-          Expanded(
-            child: Container(
-              alignment: Alignment.center,
-              color: color,
-              child: Text(
-                index.toString(),
-                style: TextStyle(
-                  color: Colors.black.withOpacity(1.0),
-                  decoration: TextDecoration.none, // Remove underlines
-                ),
-              ),
-            ),
-          ),
-        );
-      }
-
-      // Add the row to the list of rows
-      rows.add(
-        Expanded(
-          child: Row(
-            children: rowWidgets,
-          ),
-        ),
-      );
-    }
-
-    return Column(
-      children: rows,
-    );
-  }
-}
-
-
-
-    // Column(children: [
-    //   Expanded(
-    //     // flex: 4,
-    //     child: Row(children: [
-    //       Expanded(
-    //         // flex: 3,
-    // child: Container(
-    //   alignment: Alignment.center,
-    //   color: Colors.yellow,
-    //   child: Text(
-    //     "0",
-    //     style: TextStyle(color: Colors.black.withOpacity(1.0)),
-    //   ),
-    // ),
-    //       )
-    //     ]),
-    //   ),
-    // ]);
+//   @override
+//   void initState() {
+//     super.initState();
+//     _generateCells(); // Initially generate cells
+//     _scrollController.addListener(_scrollListener); // Add scroll listener
 //   }
-//   return Column(children: stars);
-// }
-// }
 
-// class newDemo {
-//   void newMethod() {
-   
-//     Container(
-//       alignment: Alignment.center,
-//       color: Colors.green,
-//       child: Text(
-//         "0",
-//         style: TextStyle(color: Colors.black.withOpacity(1.0)),
+  
+
+//   // Method to generate more cells
+//   void _generateCells() {
+//     int currentLength = cells.length;
+//     for (int i = currentLength; i < currentLength + 18; i++) {
+//       Color color = (i % 2 == 0) ? Colors.green : Colors.yellow;
+
+//       cells.add(
+//         Container(
+//           alignment: Alignment.center,
+//           color: color,
+//           child: Text(
+//             i.toString(),
+//             style: TextStyle(
+//               color: Colors.black.withOpacity(1.0),
+//               decoration: TextDecoration.none, // Remove underlines
+//             ),
+//           ),
+//         ),
+//       );
+//     }
+//   }
+
+//   // Scroll listener
+//   void _scrollListener() {
+//     if (_scrollController.position.pixels ==
+//         _scrollController.position.maxScrollExtent) {
+//       // At the bottom of the list
+//       setState(() {
+//         _generateCells(); // Generate more cells
+//       });
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: GridView.builder(
+//         controller: _scrollController, // Attach scroll controller
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//           crossAxisCount: 3,
+//         ),
+//         itemBuilder: (BuildContext context, int index) {
+//           return cells[index];
+//         },
+//         itemCount: cells.length,
 //       ),
 //     );
 //   }
 // }
+
+
+
+
+
+// -------single loop-----
+
+// class HomePage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     List<Widget> cells = [];
+
+//     // Single loop to generate cells
+//     for (int i = 0; i < 18; i++) {
+//       Color color = (i % 2 == 0) ? Colors.green : Colors.yellow;
+
+//       cells.add(
+//         Expanded(
+//           child: Container(
+//             alignment: Alignment.center,
+//             color: color,
+//             child: Text(
+//               i.toString(),
+//               style: TextStyle(
+//                 color: Colors.black.withOpacity(1.0),
+//                 decoration: TextDecoration.none, // Remove underlines
+//               ),
+//             ),
+//           ),
+//         ),
+//       );
+//     }
+
+//     // Using GridView for arranging cells in a grid of 3 columns
+//     return GridView.count(
+//       crossAxisCount: 3,
+//       children: cells,
+//     );
+//   }
+// }
+
