@@ -1,6 +1,86 @@
 // import 'package:flutter/material.dart';
 
 // class HomePage extends StatefulWidget {
+//   const HomePage({super.key});
+
+//   @override
+//   State<HomePage> createState() => _HomePageState();
+// }
+
+// class _HomePageState extends State<HomePage> {
+//   ScrollController scrollController = ScrollController();
+//   List<Widget> cells = [];
+//   @override
+//   void initState() {
+//     scrollController.addListener(() {
+//       if (scrollController.position.pixels ==
+//           scrollController.position.maxScrollExtent) {
+//         // setState(() {
+//         generateCells();
+//         // });
+//       }
+//     });
+//     generateCells();
+//     super.initState();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     // Using GridView for arranging cells in a grid of 5 columns
+//     return GridView.count(
+//       controller: scrollController,
+//       crossAxisCount: 3,
+//       children: cells,
+//     );
+//   }
+
+
+
+//   void generateCells() {
+//     // Calculate the total number of cells you want to generate
+//     int totalCells = cells.length + 30;
+
+//     // Generate cells using ListView.builder
+//     cells.addAll(List.generate(
+//       totalCells,
+//       (index) {
+//         Color color = (index % 2 == 0) ? Colors.green : Colors.yellow;
+//         return Container(
+//           alignment: Alignment.center,
+//           color: color,
+//           child: Text(
+//             index.toString(),
+//             style: TextStyle(
+//               color: Colors.black.withOpacity(1.0),
+//               decoration: TextDecoration.none, // Remove underlines
+//             ),
+//           ),
+//         );
+//       },
+//     ));
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import 'package:flutter/material.dart';
+
+// class HomePage extends StatefulWidget {
 //   @override
 //   _HomePageState createState() => _HomePageState();
 // }
