@@ -1,14 +1,22 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-class homePage extends StatefulWidget {
-  const homePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<homePage> createState() => _homePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _homePageState extends State<homePage> {
+class _HomePageState extends State<HomePage> {
   List<Widget> cells = [];
+  List<String> pokemon = [
+    "images/evee.png",
+    "images/charmender.png",
+    "images/Jigglypuff_art.png",
+    "images/char-pikachu.png"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +29,8 @@ class _homePageState extends State<homePage> {
               3, // Generate 3 columns for each row
               (columnIndex) {
                 int index = rowIndex * 3 + columnIndex;
+                final rng = Random();
+                String imagePath = pokemon[rng.nextInt(pokemon.length)];
                 Color color = (index % 2 == 0) ? Colors.green : Colors.yellow;
                 return Expanded(
                   child: AspectRatio(
@@ -30,13 +40,8 @@ class _homePageState extends State<homePage> {
                       // height: double.infinity,
                       color: color,
                       alignment: Alignment.center,
-                      child: Text(
-                        ' $index',
-                        style: TextStyle(
-                          color: Colors.black.withOpacity(1.0),
-                          decoration: TextDecoration.none,
-                        ),
-                      ),
+
+                      child: Image.asset(imagePath),
                     ),
                   ),
                 );
@@ -48,6 +53,72 @@ class _homePageState extends State<homePage> {
     );
   }
 }
+
+
+
+
+
+
+
+// import 'package:flutter/material.dart';
+
+// class HomePage extends StatefulWidget {
+//   const HomePage({Key? key}) : super(key: key);
+
+//   @override
+//   State<HomePage> createState() => _HomePageState();
+// }
+
+// class _HomePageState extends State<HomePage> {
+//   List<Widget> cells = [];
+  // List<String> pokemon = [
+  //   // "images/eve.png",
+  //   "images/balbazor.jpg",
+  //   "images/Jigglypuff_art.png",
+  //   "images/pecachu.jpg"
+  // ];
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: ListView.builder(
+//         itemCount: (pokemon.length / 3).ceil(),
+//         itemBuilder: (BuildContext context, int rowIndex) {
+//           return Row(
+//             children: List.generate(
+//               3,
+//               (columnIndex) {
+//                 int index = rowIndex * 3 + columnIndex;
+//                 Color color = (index % 2 == 0) ? Colors.green : Colors.yellow;
+//                 if (index < pokemon.length) {
+//                   return Expanded(
+//                     child: AspectRatio(
+//                       aspectRatio: 1,
+//                       child: Container(
+//                         color: color,
+//                         alignment: Alignment.center,
+//                         child: Image.asset(
+//                           pokemon[index],
+//                           fit: BoxFit.cover,
+//                         ),
+//                       ),
+//                     ),
+//                   );
+//                 } else {
+//                   return Expanded(child: Container());
+//                 }
+//               },
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
+
+
+
+
 
 
 
